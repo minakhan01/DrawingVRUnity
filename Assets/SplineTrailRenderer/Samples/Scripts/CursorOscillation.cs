@@ -7,6 +7,7 @@ public class CursorOscillation : MonoBehaviour
 	public float speed = 1f;
 	public float amplitude = 1f;
 	public float offset = 1f;
+	public float amplitudeOffset = 0;
 
 	Vector3 initialLocalPos;
 
@@ -28,7 +29,7 @@ public class CursorOscillation : MonoBehaviour
 
 	void Oscillate()
 	{
-		amplitude = amplitude + 0.001f*Mathf.Sin(0.5f);
+		amplitude = amplitude + 0.001f*Mathf.Sin(amplitudeOffset);
 		transform.localPosition = initialLocalPos + axis * offset +
 			(axis * Mathf.Sin(Time.time * amplitude));
 			

@@ -47,15 +47,16 @@ public class AndroidReceiveMessages : MonoBehaviour {
 		Debug.Log("message from java: " + message);
 		float result;
 		float.TryParse(message, out result);
-		pivotSpellCursor.GetComponent<CursorOscillation>().amplitude = result;
+		Debug.Log("change amplitude: " + result);
+		pivotSpellCursor.GetComponent<CursorOscillation>().amplitudeOffset = result/4f;
 	}
 
 	void receiveEeg(string message) {
-		Debug.Log("message from java: " + message);
+//		Debug.Log("message from java: " + message);
 	}
 
 	void receiveAccel(string message) {
-		Debug.Log("message from java: " + message);
+//		Debug.Log("message from java: " + message);
 	}
 
 	void receiveStatus(string message) {
