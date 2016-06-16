@@ -5,6 +5,8 @@ public class AndroidReceiveMessages : MonoBehaviour {
 
 	private AndroidJavaObject toastExample = null;
 	private AndroidJavaObject activityContext = null;
+	GameObject pivotSpell;
+	GameObject pivotSpellCursor;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +25,8 @@ public class AndroidReceiveMessages : MonoBehaviour {
 				}
 			}
 		}
+		pivotSpell = GameObject.Find("PivotSpell");
+		pivotSpellCursor = pivotSpell.transform.Find("Cursor").gameObject;
 	}
 
 	// Update is called once per frame
@@ -41,6 +45,9 @@ public class AndroidReceiveMessages : MonoBehaviour {
 
 	void receiveAlpha(string message) {
 		Debug.Log("message from java: " + message);
+		float result;
+		float.TryParse(message, out result);
+		pivotSpellCursor.GetComponent<CursorOscillation>().amplitude = result;
 	}
 
 	void receiveEeg(string message) {
