@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/SplineTrailRenderer/Samples/Scenes/TrailSamples.unity
+  isLoaded: 1
+  isActive: 1
